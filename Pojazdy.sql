@@ -14,8 +14,8 @@
    
    
 	_ _          _		_	  _	   _	_ _	
-	_    _      _ _	   	_	  _	   _    _   _
-	_    _     _   _	_    _	  _	   _	_   _
+	_   _       _ _	   	_	  _	   _    _   _
+	_   _      _   _	_    _	  _	   _	_   _
 	_____	  _______	___________	   _    _____ 
 	_ _ 	_	 _	__	 __        _	_ _
 
@@ -26,14 +26,14 @@
 CREATE TABLE IF NOT EXISTS vehicles ( 
 
 
-id					INTEGER NOT NULL,
+id				INTEGER NOT NULL,
 mark				TEXT	NOT NULL, 
-number_plate		TEXT	NOT NULL  	CHECK ( length (number_plate) == 7 ),
+number_plate			TEXT	NOT NULL  	CHECK ( length (number_plate) == 7 ),
 euro				INTEGER	NOT NULL  	CHECK (	euro > 0 AND euro <= 6 ),
 chassis				TEXT	NOT NULL,	
 volume				TEXT 	NOT NULL,  
-year_of_prod 		TEXT	NOT NULL	CHECK (length (year_of_prod) == 10 ), 
-time_of_insert		TEXT	DEFAULT CURRENT_TIMESTAMP,
+year_of_prod 			TEXT	NOT NULL	CHECK (length (year_of_prod) == 10 ), 
+time_of_insert			TEXT	DEFAULT CURRENT_TIMESTAMP,
 
 PRIMARY KEY (id) 
  
@@ -47,22 +47,22 @@ VALUES
 (2,'Man'   		,'CBG849H','5','Flatbed	'  		,'30m3','07-11-2012'),		
 (3,'Scania'		,'CYP153G','6','Tauntliner'		,'88m3','06-06-2015'),
 (4,'Ford'  		,'CBY227J','6','Tandem    '		,'120m3','02-04-2016'),
-(5,'Renault'	,'CHY899S','4','Flatbed	  '		,'30m3','01-10-2009'),
+(5,'Renault'		,'CHY899S','4','Flatbed	  '		,'30m3','01-10-2009'),
 (6,'Man'		,'CFF772P','5','Hiab Crane'		,'30m3','02-05-2014'),
 (7,'Ford'		,'CVN385C','5','Tandem    '		,'120m3','02-06-2013'),
 (8,'Volvo'		,'CYB343F','6','Tipper    '		,'80m3','07-07-2018'),
 (9,'Daf'		,'CDD909G','5','Silo      '		,'80m3','06-09-2017'),
-(10,'Renault'	,'CHJ678A','4','Hiab Crane'		,'30m3','03-04-2008'),
+(10,'Renault'		,'CHJ678A','4','Hiab Crane'		,'30m3','03-04-2008'),
 (11,'Volvo'		,'CPO221A','5','Box       '		,'90m3','01-01-2014'),
 (12,'Daf'		,'CTF476T','6','Tanker    '		,'60m3','05-04-2020'),
 (13,'Daf'		,'CAA190U','5','Silo      '		,'80m3','09-12-2018'),
 (14,'Man'		,'CBG456W','6','Flatbed   '		,'30m3','10-12-2019'),
-(15,'Scania'	,'CSR356R','4','Silo      '		,'80m3','06-11-2011'),
+(15,'Scania'		,'CSR356R','4','Silo      '		,'80m3','06-11-2011'),
 (16,'Ford'		,'COP936R','6','Tandem    '		,'120m3','16-09-2021'),
-(17,'Scania'	,'CWR212K','5','Tipper    '		,'80m3','24-11-2015'),
-(18,'Ford'		,'CCS669L','4','Walking Floor  ','92m3','15-05-2010'),
+(17,'Scania'		,'CWR212K','5','Tipper    '		,'80m3','24-11-2015'),
+(18,'Ford'		,'CCS669L','4','Walking Floor'          ,'92m3','15-05-2010'),
 (19,'Daf'		,'CAL470I','5','Tauntliner'		,'88m3','16-03-2019'),
-(20,'Volvo'		,'CNM890E','5','Walking Floor'  ,'92m3','21-02-2021');
+(20,'Volvo'		,'CNM890E','5','Walking Floor'          ,'92m3','21-02-2021');
 
 
 -- DML shortcuts
@@ -77,11 +77,11 @@ ALTER TABLE vehicles ADD COLUMN;
 
 CREATE TABLE IF NOT EXISTS drivers (
 
-id				INTEGER 	NOT NULL, 
+id			INTEGER 	NOT NULL, 
 worker_id		INTEGER 	NOT NULL UNIQUE,
 first_name		TEXT 		NOT NULL,
 last_name		TEXT		NOT NULL, 
-age				INTEGER 	NOT NULL CHECK ( age >18 AND age < 65 ),
+age			INTEGER 	NOT NULL CHECK ( age >18 AND age < 65 ),
 gender			TEXT 		NOT NULL CHECK ( gender = 'Man' OR gender = 'Woman'), 
 
 PRIMARY KEY (worker_id) ,
@@ -131,7 +131,7 @@ SELECT * FROM vehicles AS t1 LEFT JOIN drivers AS t2 ON t1.id = t2.id;
 
 CREATE TABLE IF NOT EXISTS direction ( 
 
-id 				INTEGER NOT NULL, 
+id 			INTEGER NOT NULL, 
 worker_id		INTEGER NOT NULL,		
 country 		TEXT 	NOT NULL,			
 city   			TEXT	NOT NULL,			
@@ -154,11 +154,11 @@ VALUES
 (5,15,		'Slovakia'		,'Bratyslava'),
 (6,33,		'Belgium'		,'Antwerpia'),
 (7,01,		'Spain'			,'Valencia'),
-(8,05,		'Nederlands'	,'Haga'),
+(8,05,		'Nederlands'		,'Haga'),
 (9,13,		'Spain'			,'Malaga'),
 (10,10,		'France'		,'Rennes'),
 (11,99,		'Ostria'		,'Innsbruck'),
-(12,67,		'Switzerland'	,'Lozanna'),
+(12,67,		'Switzerland'		,'Lozanna'),
 (13,45,		'Norway'		,'Stavanger'),
 (14,23,		'Spain'			,'Saragossa'),
 (15,20,		'Denmark'		,'Esbjerg'),
@@ -166,7 +166,7 @@ VALUES
 (17,06,		'England'		,'Nottingham'),
 (18,17,		'Portugal'		,'Porto'),
 (19,24,		'Germany'		,'Stuttgard'),
-(20,63,	    'Slovakia'		,'Koszyce');
+(20,63,	    	'Slovakia'		,'Koszyce');
 
 
  
@@ -191,7 +191,7 @@ and revert action with new table name of old column as DIRECTIONS*/
 
 CREATE TABLE new_directions (
 
-id 				INTEGER NOT NULL, 
+id 			INTEGER NOT NULL, 
 worker_id		INTEGER	NOT NULL,
 route_from		TEXT    DEFAULT 'Poland',		
 country 		TEXT 	NOT NULL,			
@@ -221,7 +221,7 @@ DROP TABLE IF EXISTS direction;
 
 CREATE TABLE IF NOT EXISTS directions (
 
-id 				INTEGER NOT NULL, 
+id 			INTEGER NOT NULL, 
 worker_id		INTEGER	NOT NULL,
 route_from		TEXT    DEFAULT 'Poland',		
 country 		TEXT 	NOT NULL,			
@@ -248,7 +248,7 @@ DROP TABLE IF EXISTS new_directions;
 
 CREATE TABLE IF NOT EXISTS "drivingtime" (
 
-id					INTEGER  PRIMARY KEY AUTOINCREMENT,
+id				INTEGER  PRIMARY KEY AUTOINCREMENT,
 worker_id			INTEGER  NOT NULL,
 week_no				INTEGER  NOT NULL,
 weekday 			TEXT	 NOT NULL,
