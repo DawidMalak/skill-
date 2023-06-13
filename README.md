@@ -15,9 +15,9 @@
    BY ONBOARD UNIT AND EU LAWS AS COMPULSORY DAILY INPUT */
    
    
-	_ _       _		   _		     _	   _	  _  _	
-	_	  _    _ _	   _	       _	   _    _   _
-	_   _   _   _		 _    _	   _	   _	  _   _
+	_ _         _		   _		     _	   _	  _  _	
+	_   _      _ _	       _	   _    _   _
+	_   _     _   _		 _    _	   _	   _	  _   _
 	_____	 _______	 ___________	   _    _____ 
 	_ _ 	_		    _	 __	   	  __     _	  _ _
 
@@ -28,14 +28,14 @@
 CREATE TABLE IF NOT EXISTS vehicles ( 
 
 
-id					      INTEGER NOT NULL,
-mark				      TEXT	NOT NULL, 
-number_plate		  TEXT	NOT NULL  	CHECK ( length (number_plate) == 7 ),
-euro				      INTEGER	NOT NULL  	CHECK (	euro > 0 AND euro <= 6 ),
-chassis				    TEXT	NOT NULL,	
-volume				    TEXT 	NOT NULL,  
-year_of_prod 		  TEXT	NOT NULL	CHECK (length (year_of_prod) == 10 ), 
-time_of_insert		TEXT	DEFAULT CURRENT_TIMESTAMP,
+id			  INTEGER NOT NULL,
+mark			  TEXT	  NOT NULL, 
+number_plate		  TEXT	  NOT NULL  	CHECK ( length (number_plate) == 7 ),
+euro		 	  INTEGER NOT NULL  	CHECK (	euro > 0 AND euro <= 6 ),
+chassis			  TEXT	  NOT NULL,	
+volume			  TEXT 	  NOT NULL,  
+year_of_prod 		  TEXT	  NOT NULL	CHECK (length (year_of_prod) == 10 ), 
+time_of_insert		  TEXT	  DEFAULT CURRENT_TIMESTAMP,
 
 PRIMARY KEY (id) 
  
