@@ -1,4 +1,4 @@
-# skills
+# Skills
 
 -- Hi this is my first project in sqlite ,thank you for check in .
 
